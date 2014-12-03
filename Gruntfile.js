@@ -49,8 +49,33 @@ module.exports = function(grunt) {
             'bower_components/numeral/numeral.js',
             'bower_components/moment/moment.js',
             'bower_components/d3/d3.js',
+            'bower_components/handlebars/handlebars.runtime.js',
+            'build/templates.js',
             'src/js/main.js'
           ]
+        }
+      }
+    },
+
+    // Pre-render Handlebars templates
+    handlebars: {
+      options: {
+        // Returns the filename, with its parent directory if
+        // it's in a subdirectory of the src/templates folder
+        processName: function(filePath) {
+          var path = filePath.toLowerCase(),
+          pieces = path.split("/"),
+          name = '';
+          if(pieces[pieces.length - 2] !== 'templates') {
+            name = name + pieces[pieces.length - 2];
+          }
+          name = name + pieces[pieces.length - 1];
+          return name.split(".")[0];
+        }
+      },
+      compile: {
+        files: {
+          'build/templates.js': ['src/templates/**/*.hbs']
         }
       }
     },
@@ -63,7 +88,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['src/js/**.js'],
-        tasks: ['jshint', 'clean:js', 'uglify']
+        tasks: ['jshint', 'clean:js', 'handlebars', 'uglify']
       },
       styles: {
         files: ['src/css/**.less'],
@@ -79,7 +104,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['jshint', 'clean', 'less', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'handlebars', 'less', 'uglify']);
 
 };

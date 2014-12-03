@@ -5,8 +5,8 @@
     var color = d3.scale.category20c();
 
     var drawChart = function(data) {
-      var width = 1170,
-      height = 600;
+      var width = 847.5,
+          height = 750;
 
       var treemap = d3.layout.treemap()
         .size([width, height])
@@ -64,7 +64,13 @@
         });
 
       d3.selectAll("input").on("change", function change() {
-        var value = this.value === "count" ? function() { return 1; } : function(d) { return d['Annual salary']; };
+        var val = this.value;
+        var value = function(d) {
+          if(val === "count") {
+            return 1;
+          }
+          return d['Annual salary'];
+        };
 
         node
           .data(treemap.value(value).nodes)
@@ -97,8 +103,19 @@
 
     // Write color legend
     var drawLegend = function(data) {
-      _.each(data, function(hires, agency) {
-        $('#legend').append('<li><div class="color" style="background:' + color(hires.name) + ';"></div>' + hires.name + ' (' + hires.children.length + ')</li>');
+      data = data.slice(0, 8);
+      _.each(data, function(agency) {
+        // Calculate the average salary for the agency
+        var average = (_.reduce(agency.children, function(memo, hire){
+          return memo + hire['Annual salary'];
+        }, 0)) / agency.children.length;
+        // Then add each agency to the legend
+        $('#legend').append(JST.legend({
+          color: color(agency.name),
+          count: agency.children.length,
+          agency: agency.name,
+          average: numeral(average).format('$0,0')
+        }));
       });
     };
 
@@ -117,12 +134,15 @@
             children: hires
           };
         })
+        .sortBy(function(agency) {
+          return -agency.children.length;
+        })
         .value();
+        drawLegend(grouped);
         drawChart({
           name: "Perry hires",
           children: grouped
         });
-        drawLegend(grouped);
       }
     });
 

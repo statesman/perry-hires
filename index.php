@@ -72,9 +72,15 @@
           <label class="radio-inline"><input type="radio" name="mode" value="count"> Equally</label>
         </div>
       </form>
-      <div id="chart"></div>
-      <h3>Legend</h3>
-      <ul id="legend" class="list-inline"></ul>
+      <div class="row">
+        <div class="col-xs-12 col-md-9">
+          <div id="chart"></div>
+        </div>
+        <div class="col-xs-12 col-md-3 top-agencies">
+          <h3>Top agencies</h3>
+          <ul id="legend" class="list-group"></ul>
+        </div>
+      </div>
     </div>
 
     <?php /* Banner ad */ ?>

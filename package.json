@@ -13,5 +13,7 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "grunt-contrib-handlebars": "^0.9.1"
+  }
 }
