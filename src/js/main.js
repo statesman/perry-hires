@@ -2,33 +2,11 @@
 
   $(function() {
 
-    $.ajax({
-      dataType: 'json',
-      url: 'perry-hires.json',
-      success: function(data) {
-        var grouped = _.chain(data)
-          .groupBy(function(hire) {
-            return hire['Agency name'];
-          })
-          .map(function(hires, agency) {
-            return {
-              name: agency,
-              children: hires
-            };
-          })
-          .value();
-        drawChart({
-          name: "Perry hires",
-          children: grouped
-        });
-      }
-    });
+    var color = d3.scale.category20c();
 
     var drawChart = function(data) {
       var width = 1170,
       height = 600;
-
-      var color = d3.scale.category20c();
 
       var treemap = d3.layout.treemap()
         .size([width, height])
@@ -83,11 +61,6 @@
           if(!d.children) {
             return d['Annual salary'];
           }
-        })
-        .text(function(d) {
-          if(!d.children) {
-            return d['First name'][0] + '. ' + d['Last name'];
-          }
         });
 
       d3.selectAll("input").on("change", function change() {
@@ -107,6 +80,7 @@
           .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
       }
 
+      // Setup popovers
       $('.hire').popover({
         content: function() {
           var data = ['<strong>' + $(this).data('name') + '</strong>'];
@@ -118,7 +92,39 @@
         html: true,
         trigger: 'hover'
       });
+
     };
+
+    // Write color legend
+    var drawLegend = function(data) {
+      _.each(data, function(hires, agency) {
+        $('#legend').append('<li><div class="color" style="background:' + color(hires.name) + ';"></div>' + hires.name + ' (' + hires.children.length + ')</li>');
+      });
+    };
+
+    // Get the JSON and fire the draw process
+    $.ajax({
+      dataType: 'json',
+      url: 'perry-hires.json',
+      success: function(data) {
+        var grouped = _.chain(data)
+        .groupBy(function(hire) {
+          return hire['Agency name'];
+        })
+        .map(function(hires, agency) {
+          return {
+            name: agency,
+            children: hires
+          };
+        })
+        .value();
+        drawChart({
+          name: "Perry hires",
+          children: grouped
+        });
+        drawLegend(grouped);
+      }
+    });
 
   });
 

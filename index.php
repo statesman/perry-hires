@@ -73,6 +73,8 @@
         </div>
       </form>
       <div id="chart"></div>
+      <h3>Legend</h3>
+      <ul id="legend" class="list-inline"></ul>
     </div>
 
     <?php /* Banner ad */ ?>
