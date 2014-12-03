@@ -43,6 +43,8 @@ module.exports = function(grunt) {
         files: {
           'dist/scripts.js': [
             'bower_components/jquery/dist/jquery.js',
+            'bower_components/bootstrap/js/tooltip.js',
+            'bower_components/bootstrap/js/popover.js',
             'bower_components/underscore/underscore.js',
             'bower_components/d3/d3.js',
             'src/js/main.js'

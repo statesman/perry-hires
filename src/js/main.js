@@ -64,9 +64,19 @@
           if(!d.children) {
             var name = d['First name'];
             if(d.MI.length !== 0) {
-              name = name + '. ' + d.MI;
+              name = name + ' ' + d.MI + '.';
             }
             return name + ' ' + d['Last name'];
+          }
+        })
+        .attr('data-agency', function(d) {
+          if(!d.children) {
+            return d['Agency name'];
+          }
+        })
+        .attr('data-hired', function(d) {
+          if(!d.children) {
+            return d['Hire date'];
           }
         })
         .attr('data-salary', function(d) {
@@ -96,6 +106,18 @@
           .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
           .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
       }
+
+      $('.hire').popover({
+        content: function() {
+          var data = ['<strong>' + $(this).data('name') + '</strong>'];
+          data.push($(this).data('agency'));
+          data.push('Salary: ' + $(this).data('salary'));
+          data.push('Hired: ' + $(this).data('hired'));
+          return data.join('<br />');
+        },
+        html: true,
+        trigger: 'hover'
+      });
     };
 
   });
