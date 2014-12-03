@@ -1,0 +1,23 @@
+// Bring in vanilla Bootstrap ...
+@import 'custom-bootstrap/bootstrap.less';
+// ... and then decorate it with Statesman styles
+@import 'custom-bootstrap/variables.less';
+
+// Files for individual modules
+@import 'header.less';
+@import 'footer.less';
+
+.node {
+  overflow: hidden;
+  position: absolute;
+  &.hire {
+    padding: 4px;
+    color: white;
+    font-size: 8.5px;
+    line-height: 12px;
+    &:hover {
+      border: 2px solid #fff;
+      cursor: pointer;
+    }
+  }
+}
