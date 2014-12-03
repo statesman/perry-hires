@@ -119,11 +119,51 @@
       });
     };
 
+    // A breakdown by salary of all hires
+    var salaryBreakdown = function(data) {
+      // Format the breakdown
+      var breakdown = _.chain(data)
+      .countBy(function(salary) {
+        if(salary <= 50000.99) {
+          return 'less than $50k';
+        }
+        else if(salary <= 100000.99) {
+          return '$50k to $100k';
+        }
+        else if(salary <= 200000.99) {
+          return '$100k to $200k';
+        }
+        else {
+          return 'more than $200k';
+        }
+      })
+      .map(function(count, bucket) {
+        return {
+          count: count,
+          bucket: bucket
+        };
+      })
+      .sortBy(function(breakdown) {
+        return -breakdown.count;
+      })
+      .value();
+      // Write it to the DOM
+      var total = data.length;
+      _.each(breakdown, function(category) {
+        $('#salary-breakdown').append(JST.salarybar({
+          width: category.count / total * 100,
+          bucket: category.bucket
+        }));
+      });
+      console.log(breakdown);
+    };
+
     // Get the JSON and fire the draw process
     $.ajax({
       dataType: 'json',
       url: 'perry-hires.json',
       success: function(data) {
+        salaryBreakdown(_.pluck(data, 'Annual salary'));
         var grouped = _.chain(data)
         .groupBy(function(hire) {
           return hire['Agency name'];

@@ -79,6 +79,10 @@
         <div class="col-xs-12 col-md-3 top-agencies">
           <h3>Top agencies</h3>
           <ul id="legend" class="list-group"></ul>
+          <h3>Salary breakdown</h3>
+          <ul class="list-group">
+            <li id="salary-breakdown" class="list-group-item"></li>
+          </ul>
         </div>
       </div>
     </div>
