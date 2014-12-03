@@ -1,4 +1,4 @@
-(function($, _, d3) {
+(function($, _, d3, numeral) {
 
   $(function() {
 
@@ -111,8 +111,8 @@
         content: function() {
           var data = ['<strong>' + $(this).data('name') + '</strong>'];
           data.push($(this).data('agency'));
-          data.push('Salary: ' + $(this).data('salary'));
-          data.push('Hired: ' + $(this).data('hired'));
+          data.push('Salary: ' + numeral($(this).data('salary')).format('$0,0'));
+          data.push('Hired: ' + moment($(this).data('hired')).format('MMM D, YYYY'));
           return data.join('<br />');
         },
         html: true,
@@ -122,4 +122,4 @@
 
   });
 
-}(jQuery, _, d3));
+}(jQuery, _, d3, numeral));

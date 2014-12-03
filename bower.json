@@ -16,6 +16,8 @@
   "dependencies": {
     "bootstrap": "~3.3.0",
     "d3": "~3.4.13",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "numeral": "~1.5.3",
+    "moment": "~2.8.4"
   }
 }
