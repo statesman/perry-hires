@@ -22,6 +22,9 @@
     padding-left: @grid-gutter-width;
   }
   .page-header {
+    @media (max-width: @screen-sm) {
+      margin-top: @line-height-computed;
+    }
     h1 {
       margin-top: 0;
     }
@@ -33,6 +36,20 @@
   .salary-bar {
     background: @brand-primary;
     height: 16px;
+  }
+
+  form {
+    font-family: @font-family-sans-serif;
+    .form-control-static {
+      @media (max-width: @screen-sm) {
+        display: inline-block;
+        margin-right: 6px;
+      }
+      @media (min-width: @screen-sm-min) {
+        padding-bottom: 0;
+      }
+      font-weight: bold;
+    }
   }
 }
 
@@ -51,7 +68,6 @@
     @media (min-width: @screen-sm-min) {
       border: 2px solid @body-bg;
     }
-    margin-bottom: @line-height-computed;
 
     .node {
       position: absolute;
@@ -78,4 +94,8 @@
     margin-bottom: 0;
   }
   font-size: 13px;
+}
+
+#legal {
+  font-family: @font-family-sans-serif;
 }
