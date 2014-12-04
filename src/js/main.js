@@ -75,8 +75,6 @@
 
         node
           .data(treemap.value(value).nodes)
-          //.transition()
-          //.duration(1500)
           .call(position);
       });
 
@@ -113,16 +111,20 @@
         viewport: '#chart'
       });
 
-      return treemap;
-
     };
 
     // Get the size of the chart, based on available space; returns an array
     // that is width, height
     var chartHeight = function() {
-      var winHeight = $(window).height();
-      var navHeight = $('nav.navbar').outerHeight();
-      return winHeight - navHeight;
+      var winWidth = $(window).width();
+      if(winWidth > 768) { // small Bootstrap breakpoint
+        var winHeight = $(window).height();
+        var navHeight = $('nav.navbar').outerHeight();
+        return winHeight - navHeight - 2;
+      }
+      else {
+        return 250;
+      }
     };
 
     // Write color legend
@@ -179,7 +181,6 @@
           bucket: category.bucket
         }));
       });
-      console.log(breakdown);
     };
 
     // Get the JSON and fire the draw process
@@ -210,9 +211,9 @@
       }
     });
 
-    $(window).resize(function() {
-      console.log(treemap);
-    });
+    $(window).resize(_.debounce(function() {
+      $('#chart').height(chartHeight());
+    }, 500));
 
   });
 

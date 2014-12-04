@@ -68,7 +68,13 @@
             <h1>Interactive title goes here</h1>
             <p><small>Interactive by Andrew Chavez and Asher Price, Austin American-Statesman</small></p>
             <p>This is a place where chatter about the interactive can go.</p>
+            <p><a href="#">Related story ></a></p>
           </div>
+
+          <div id="chart-wrapper" class="col-xs-12 col-sm-8 col-md-9">
+            <div id="chart"></div>
+          </div>
+
           <form class="form">
             <div class="form-group">
               <p class="form-control-static">Size boxes:</p>
@@ -82,9 +88,6 @@
           <ul class="list-group">
             <li id="salary-breakdown" class="list-group-item"></li>
           </ul>
-        </div>
-        <div id="chart-wrapper" class="col-xs-12 col-sm-8 col-md-9">
-          <div id="chart"></div>
         </div>
       </div>
     </div>
