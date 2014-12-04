@@ -7,17 +7,51 @@
 @import 'header.less';
 @import 'footer.less';
 
-.node {
-  overflow: hidden;
-  position: absolute;
-  &.hire {
-    padding: 4px;
-    color: white;
-    font-size: 8.5px;
-    line-height: 12px;
-    &:hover {
-      border: 2px solid #fff;
-      cursor: pointer;
+#sidebar {
+  margin-top: @navbar-height;
+  .page-header {
+    h2 {
+      margin-top: 0;
+    }
+  }
+  .list-group-item p {
+    margin-bottom: 0;
+  }
+
+  .salary-bar {
+    background: @brand-primary;
+    height: 16px;
+  }
+}
+
+#chart-wrapper {
+  position: fixed;
+  padding-right: 0;
+  right: 0;
+  top: @navbar-height + 2px;
+  #chart {
+    height: 800px;
+    position: relative;
+    border: 2px solid #fff;
+
+    .node {
+      overflow: hidden;
+      position: absolute;
+      &.hire {
+        border: 1px solid #fff;
+        padding: 4px;
+        color: white;
+        font-size: 8.5px;
+        line-height: 12px;
+
+        -webkit-transition: width 500ms, height 500ms, left 500ms, top 500ms;
+        -o-transition: width 500ms, height 500ms, left 500ms, top 500ms;
+        transition: width 500ms, height 500ms, left 500ms, top 500ms;
+        &:hover {
+          border: 3px solid #fff;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -26,19 +60,8 @@
   strong {
     font-size: 14px;
   }
-  font-size: 13px;
-}
-
-.top-agencies {
-  h3:first-child {
-    margin-top: 0;
-  }
-  .list-group-item p {
+  p {
     margin-bottom: 0;
   }
-}
-
-.salary-bar {
-  background: @brand-primary;
-  height: 16px;
+  font-size: 13px;
 }

@@ -1,22 +1,18 @@
+
 (function($, _, d3, numeral) {
 
   $(function() {
 
     var color = d3.scale.category20c();
 
-    var drawChart = function(data) {
-      var width = 847.5,
-          height = 750;
-
+    var drawChart = function(data, width, height) {
       var treemap = d3.layout.treemap()
         .size([width, height])
         .sticky(true)
         .value(function(d) { return d['Annual salary']; });
 
       var div = d3.select("#chart")
-        .style("position", "relative")
-        .style("width", width + "px")
-        .style("height", height + "px");
+        .style('height', height + 'px');
 
       var node = div.datum(data).selectAll(".node")
         .data(treemap.nodes)
@@ -57,6 +53,11 @@
             return d['Hire date'];
           }
         })
+        .attr('data-job', function(d) {
+          if(!d.children) {
+            return d['Class title'];
+          }
+        })
         .attr('data-salary', function(d) {
           if(!d.children) {
             return d['Annual salary'];
@@ -74,31 +75,54 @@
 
         node
           .data(treemap.value(value).nodes)
-          .transition()
-          .duration(1500)
+          //.transition()
+          //.duration(1500)
           .call(position);
       });
 
       function position() {
-        this.style("left", function(d) { return d.x + "px"; })
-          .style("top", function(d) { return d.y + "px"; })
-          .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
-          .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
+        this
+          .style("left", function(d) {
+            return (d.x / width * 100) + "%";
+          })
+          .style("top", function(d) {
+            return (d.y / height * 100) + "%";
+          })
+          .style("width", function(d) {
+            return (Math.max(0, d.dx - 1) / width * 100) + "%";
+          })
+          .style("height", function(d) {
+            return (Math.max(0, d.dy - 1) / height * 100) + "%";
+          });
       }
 
       // Setup popovers
       $('.hire').popover({
         content: function() {
-          var data = ['<strong>' + $(this).data('name') + '</strong>'];
-          data.push($(this).data('agency'));
-          data.push('Salary: ' + numeral($(this).data('salary')).format('$0,0'));
-          data.push('Hired: ' + moment($(this).data('hired')).format('MMM D, YYYY'));
-          return data.join('<br />');
+          return JST.popover({
+            name: $(this).data('name'),
+            job: $(this).data('job'),
+            agency: $(this).data('agency'),
+            salary: numeral($(this).data('salary')).format('$0,0'),
+            hired: moment($(this).data('hired')).format('MMM D, YYYY')
+          });
         },
         html: true,
-        trigger: 'hover'
+        trigger: 'hover',
+        placement: 'auto left',
+        viewport: '#chart'
       });
 
+      return treemap;
+
+    };
+
+    // Get the size of the chart, based on available space; returns an array
+    // that is width, height
+    var chartHeight = function() {
+      var winHeight = $(window).height();
+      var navHeight = $('nav.navbar').outerHeight();
+      return winHeight - navHeight;
     };
 
     // Write color legend
@@ -182,8 +206,12 @@
         drawChart({
           name: "Perry hires",
           children: grouped
-        });
+        }, 1000, chartHeight());
       }
+    });
+
+    $(window).resize(function() {
+      console.log(treemap);
     });
 
   });

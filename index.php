@@ -47,8 +47,8 @@
     <?php include "includes/metrics-head.inc";?>
   </head>
   <body>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="http://www.statesman.com/" target="_blank">
             <img width="273" height="26" src="assets/logo.png" />
@@ -57,32 +57,31 @@
       </div>
     </nav>
 
-    <div class="container header">
-      <h4>Overline goes here</h4>
-      <h2>Interactive title goes here</h2>
-      <p><small>Interactive by CREDIT GOES HERE, Austin American-Statesman</small></p>
-      <p>This is a place where chatter about the interactive can go.</p>
-    </div>
-
-    <div class="container">
-      <form class="form">
-        <div class="form-group">
-          <p class="form-control-static">Size boxes:</p>
-          <label class="radio-inline"><input type="radio" name="mode" value="size" checked> By annual salary</label>
-          <label class="radio-inline"><input type="radio" name="mode" value="count"> Equally</label>
-        </div>
-      </form>
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-md-9">
-          <div id="chart"></div>
-        </div>
-        <div class="col-xs-12 col-md-3 top-agencies">
+        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
+          <div class="page-header">
+            <h4>Overline goes here</h4>
+            <h2>Interactive title goes here</h2>
+            <p><small>Interactive by CREDIT GOES HERE, Austin American-Statesman</small></p>
+            <p>This is a place where chatter about the interactive can go.</p>
+          </div>
+          <form class="form">
+            <div class="form-group">
+              <p class="form-control-static">Size boxes:</p>
+              <label class="radio-inline"><input type="radio" name="mode" value="size" checked> By annual salary</label>
+              <label class="radio-inline"><input type="radio" name="mode" value="count"> Equally</label>
+            </div>
+          </form>
           <h3>Top agencies</h3>
           <ul id="legend" class="list-group"></ul>
           <h3>Salary breakdown</h3>
           <ul class="list-group">
             <li id="salary-breakdown" class="list-group-item"></li>
           </ul>
+        </div>
+        <div id="chart-wrapper" class="col-xs-12 col-sm-8 col-md-9">
+          <div id="chart"></div>
         </div>
       </div>
     </div>

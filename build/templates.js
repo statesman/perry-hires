@@ -15,6 +15,23 @@ this["JST"]["legend"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"m
 
 
 
+this["JST"]["popover"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<p><strong>"
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "</strong></p>\r\n<p>"
+    + escapeExpression(((helper = (helper = helpers.job || (depth0 != null ? depth0.job : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"job","hash":{},"data":data}) : helper)))
+    + ", "
+    + escapeExpression(((helper = (helper = helpers.agency || (depth0 != null ? depth0.agency : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"agency","hash":{},"data":data}) : helper)))
+    + "</p>\r\n<p>Salary: "
+    + escapeExpression(((helper = (helper = helpers.salary || (depth0 != null ? depth0.salary : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"salary","hash":{},"data":data}) : helper)))
+    + "</p>\r\n<p>Hired: "
+    + escapeExpression(((helper = (helper = helpers.hired || (depth0 != null ? depth0.hired : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"hired","hash":{},"data":data}) : helper)))
+    + "</p>\r\n";
+},"useData":true});
+
+
+
 this["JST"]["salarybar"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "<div class=\"salary\">"
