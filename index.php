@@ -54,9 +54,14 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="http://www.statesman.com/" target="_blank">
-            <img width="273" height="26" src="/assets/logo.png" />
+            <img width="273" height="26" src="assets/logo.png" />
           </a>
         </div>
+        <ul class="nav navbar-nav navbar-right social">
+          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        </ul>
       </div>
     </nav>
 
@@ -82,6 +87,7 @@
               <label class="radio-inline"><input type="radio" name="mode" value="count"> Equally</label>
             </div>
           </form>
+          <hr />
           <h3>Top agencies</h3>
           <ul id="legend" class="list-group"></ul>
           <h3>Salary breakdown</h3>
