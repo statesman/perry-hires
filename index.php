@@ -33,7 +33,10 @@
     <meta name="twitter:url" content="<?php print $meta['url']; ?>" />
 
     <link href="dist/style.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700italic,700,800,800italic' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +54,7 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="http://www.statesman.com/" target="_blank">
-            <img width="273" height="26" src="assets/logo.png" />
+            <img width="273" height="26" src="/assets/logo.png" />
           </a>
         </div>
       </div>
@@ -62,8 +65,8 @@
         <div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
           <div class="page-header">
             <h4>Overline goes here</h4>
-            <h2>Interactive title goes here</h2>
-            <p><small>Interactive by CREDIT GOES HERE, Austin American-Statesman</small></p>
+            <h1>Interactive title goes here</h1>
+            <p><small>Interactive by Andrew Chavez and Asher Price, Austin American-Statesman</small></p>
             <p>This is a place where chatter about the interactive can go.</p>
           </div>
           <form class="form">
