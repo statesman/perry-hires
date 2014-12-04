@@ -9,7 +9,8 @@
         'title' => 'Starter template',
         'description' => 'This is a starter template.',
         'thumbnail' => 'http://absolute-url-to/thumbnail.jpg',
-        'url' => 'http://absolute-url-to/this-page.html'
+        'url' => 'http://absolute-url-to/this-page.html',
+        'twitter' => 'statesman'
       );
     ?>
 
@@ -26,7 +27,7 @@
     <meta property="og:url" content="<?php print $meta['url']; ?>"/>
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@statesman" />
+    <meta name="twitter:site" content="@<?php print $meta['twitter']; ?>" />
     <meta name="twitter:title" content="<?php print $meta['title']; ?>" />
     <meta name="twitter:description" content="<?php print $meta['description']; ?>" />
     <meta name="twitter:image" content="<?php print $meta['thumbnail']; ?>" />
@@ -57,10 +58,10 @@
             <img width="273" height="26" src="assets/logo.png" />
           </a>
         </div>
-        <ul class="nav navbar-nav navbar-right social">
-          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <ul class="nav navbar-nav navbar-right social hidden-xs">
+          <li><a href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&related=<?php print urlencode($meta['twitter']); ?>"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
         </ul>
       </div>
     </nav>

@@ -207,7 +207,7 @@
         drawChart({
           name: "Perry hires",
           children: grouped
-        }, 1000, chartHeight());
+        }, $('#chart').width(), chartHeight());
       }
     });
 

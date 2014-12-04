@@ -3,6 +3,9 @@
 // ... and then decorate it with Statesman styles
 @import 'custom-bootstrap/variables.less';
 
+// Add FontAwesome fonts
+@import '../../bower_components/font-awesome/less/font-awesome.less';
+
 // Files for individual modules
 @import 'header.less';
 @import 'footer.less';
@@ -13,6 +16,8 @@
     .container-fluid {
       padding-left: @grid-gutter-width;
     }
+    border-color: #ddd;
+    .box-shadow(0 0 13px rgba(0,0,0,0.1));
   }
 }
 
@@ -28,6 +33,7 @@
     h1 {
       margin-top: 0;
     }
+    border-bottom-color: @hr-border;
   }
   .list-group-item p {
     margin-bottom: 0;
@@ -98,4 +104,22 @@
 
 #legal {
   font-family: @font-family-sans-serif;
+}
+
+ul.social {
+  padding-right: @grid-gutter-width - 8px;
+  > li > a {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+    .fa-facebook-square {
+      color: #3b5998;
+    }
+    .fa-twitter {
+      color: #55acee;
+    }
+    .fa-google-plus {
+      color: #dd4b39;
+    }
+  }
 }

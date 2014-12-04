@@ -19,6 +19,7 @@
     "underscore": "~1.7.0",
     "numeral": "~1.5.3",
     "moment": "~2.8.4",
-    "handlebars": "~2.0.0"
+    "handlebars": "~2.0.0",
+    "font-awesome": "~4.2.0"
   }
 }
