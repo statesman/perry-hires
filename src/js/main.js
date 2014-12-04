@@ -20,7 +20,14 @@
         .attr("class", "node")
         .call(position)
         .style("background", function(d) {
-          if(!d.children) {
+          if(d.depth === 0) {
+            return null;
+          }
+          else if(d.children) {
+            console.log(d);
+            return color(d.name);
+          }
+          else {
             return color(d['Agency name']);
           }
         })
@@ -46,6 +53,9 @@
         .attr('data-agency', function(d) {
           if(!d.children) {
             return d['Agency name'];
+          }
+          else {
+            return d.name;
           }
         })
         .attr('data-hired', function(d) {
@@ -129,7 +139,7 @@
 
     // Write color legend
     var drawLegend = function(data) {
-      data = data.slice(0, 8);
+      data = data.slice(0, 11);
       _.each(data, function(agency) {
         // Calculate the average salary for the agency
         var average = (_.reduce(agency.children, function(memo, hire){
@@ -144,6 +154,23 @@
         }));
       });
     };
+
+    // Highlight agencies when they're hovered over
+    var chart = $('#chart');
+    $('#legend')
+      .on('mouseenter', function() {
+        chart.addClass('by-agency');
+      })
+      .on('mouseleave', function() {
+        chart.removeClass('by-agency');
+      })
+      .on('mouseleave', '.list-group-item', function() {
+        chart.find('.selected').removeClass('selected');
+      })
+      .on('mouseenter', '.list-group-item', function() {
+        var agencyName = $(this).find('.agency').text();
+        chart.find('.agency[data-agency="' + agencyName + '"]').addClass('selected');
+      });
 
     // A breakdown by salary of all hires
     var salaryBreakdown = function(data) {

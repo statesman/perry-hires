@@ -75,18 +75,38 @@
       border: 2px solid @body-bg;
     }
 
+    &.by-agency {
+      .node {
+        &.hire {
+          z-index: 150;
+          background-color: #ddd !important;
+        }
+        &.agency {
+          border: 1px solid @body-bg;
+          opacity: 0;
+          z-index: 300;
+          &.selected {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     .node {
       position: absolute;
+      -webkit-transition: width 500ms, height 500ms, left 500ms, top 500ms;
+      -o-transition: width 500ms, height 500ms, left 500ms, top 500ms;
+      transition: width 500ms, height 500ms, left 500ms, top 500ms;
+
       &.hire {
         border: 1px solid @body-bg;
-
-        -webkit-transition: width 500ms, height 500ms, left 500ms, top 500ms;
-        -o-transition: width 500ms, height 500ms, left 500ms, top 500ms;
-        transition: width 500ms, height 500ms, left 500ms, top 500ms;
         &:hover {
           border: 3px solid @body-bg;
           cursor: pointer;
         }
+      }
+      &.agency {
+        opacity: 0;
       }
     }
   }
