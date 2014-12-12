@@ -6,9 +6,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <?php
       $meta = array(
-        'title' => 'Starter template',
-        'description' => 'This is a starter template.',
-        'thumbnail' => 'http://absolute-url-to/thumbnail.jpg',
+        'title' => 'Interactive: Where 200+ former Perry aides work in Texas\' bureaucracy',
+        'description' => 'At least 200 former aides of Gov. Rick Perry still work in the state\'s government. Our interactive charts where those former aides now work within the bureaucracy.',
+        'thumbnail' => 'http://projects.statesman.com/news/perry-people/assets/share.png',
         'url' => 'http://projects.statesman.com/news/perry-people',
         'twitter' => 'statesman'
       );
@@ -71,10 +71,10 @@
         <div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
           <div class="page-header">
             <h4>Texas politics</h4>
-            <h1>200+ former Perry aides spread through Texas government</h1>
+            <h1>200+ former Perry aides spread throughout Texas government</h1>
             <p><small>Interactive by Andrew Chavez and Asher Price, Austin American-Statesman</small></p>
             <p>At least 200 former aides of Gov. Rick Perry work within Texas’ bureaucracy, ensuring that Perry’s outlook will shape the strategies and programs that make the state tick long after he himself leaves office at the end of this month. Our interactive charts where those former aides now work within the bureaucracy.</p>
-            <p><a href="#">Related story ></a></p>
+            <?php /**<p><a href="#">Related story ></a></p> **/ ?>
           </div>
 
           <div id="chart-wrapper" class="col-xs-12 col-sm-8 col-md-9">
@@ -84,7 +84,7 @@
           <form class="form">
             <div class="form-group">
               <p class="form-control-static">Size boxes:</p>
-              <label class="radio-inline"><input type="radio" name="mode" value="size" checked> By annual salary</label>
+              <label class="radio-inline"><input type="radio" name="mode" value="size" checked> By current annual salary</label>
               <label class="radio-inline"><input type="radio" name="mode" value="count"> Equally</label>
             </div>
           </form>
