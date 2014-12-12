@@ -9,7 +9,7 @@
       var treemap = d3.layout.treemap()
         .size([width, height])
         .sticky(true)
-        .value(function(d) { return d['Annual salary']; });
+        .value(function(d) { return d.salary; });
 
       var div = d3.select("#chart")
         .style('height', height + 'px');
@@ -24,11 +24,10 @@
             return null;
           }
           else if(d.children) {
-            console.log(d);
             return color(d.name);
           }
           else {
-            return color(d['Agency name']);
+            return color(d.agency);
           }
         })
         .classed('agency', function(d) {
@@ -43,16 +42,16 @@
         })
         .attr('data-name', function(d) {
           if(!d.children) {
-            var name = d['First name'];
-            if(d.MI.length !== 0) {
-              name = name + ' ' + d.MI + '.';
+            var name = d.first;
+            if(d.middle) {
+              name = name + ' ' + d.middle + '.';
             }
-            return name + ' ' + d['Last name'];
+            return name + ' ' + d.last;
           }
         })
         .attr('data-agency', function(d) {
           if(!d.children) {
-            return d['Agency name'];
+            return d.agency;
           }
           else {
             return d.name;
@@ -60,17 +59,17 @@
         })
         .attr('data-hired', function(d) {
           if(!d.children) {
-            return d['Hire date'];
+            return d.start;
           }
         })
         .attr('data-job', function(d) {
           if(!d.children) {
-            return d['Class title'];
+            return d.title;
           }
         })
         .attr('data-salary', function(d) {
           if(!d.children) {
-            return d['Annual salary'];
+            return d.salary;
           }
         });
 
@@ -80,7 +79,7 @@
           if(val === "count") {
             return 1;
           }
-          return d['Annual salary'];
+          return d.salary;
         };
 
         node
@@ -143,7 +142,7 @@
       _.each(data, function(agency) {
         // Calculate the average salary for the agency
         var average = (_.reduce(agency.children, function(memo, hire){
-          return memo + hire['Annual salary'];
+          return memo + hire.salary;
         }, 0)) / agency.children.length;
         // Then add each agency to the legend
         $('#legend').append(JST.legend({
@@ -213,12 +212,12 @@
     // Get the JSON and fire the draw process
     $.ajax({
       dataType: 'json',
-      url: 'perry-hires.json',
+      url: 'Perry-hires-updated.json',
       success: function(data) {
-        salaryBreakdown(_.pluck(data, 'Annual salary'));
+        salaryBreakdown(_.pluck(data, 'salary'));
         var grouped = _.chain(data)
         .groupBy(function(hire) {
-          return hire['Agency name'];
+          return hire.agency;
         })
         .map(function(hires, agency) {
           return {
