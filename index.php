@@ -96,8 +96,11 @@
             <li id="salary-breakdown" class="list-group-item"></li>
           </ul>
 
-          <?php /* Banner ad */ ?>
-          <?php include "includes/banner-ad.inc";?>
+     			<div class="center-block" id='div-gpt-ad-1403295829614-1' style='width:300px; height:250px; margin-bottom: 22px;'>
+      			<script type='text/javascript'>
+        			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1403295829614-1'); });
+      			</script>
+    			</div>
 
           <p id="legal" class="center-block text-center"><small>© 2014 <a href="http://www.coxmediagroup.com" target="_blank">Cox Media Group</a>. By using this website, you accept the terms of our <a href="http://www.mystatesman.com/visitor_agreement/" target="_blank">Visitor Agreement</a> and <a target="_blank" href="http://www.mystatesman.com/privacy_policy/">Privacy Policy</a>, and understand your options regarding <a target="_blank" href="http://www.mystatesman.com/privacy_policy/#ad-choices">Ad Choices</a><img src="http://media.cmgdigital.com/shared/img/photos/2012/02/29/d3/da/ad_choices_logo.png" alt="AdChoices">.</small></p>
         </div>
