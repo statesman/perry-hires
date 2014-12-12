@@ -9,7 +9,7 @@
         'title' => 'Starter template',
         'description' => 'This is a starter template.',
         'thumbnail' => 'http://absolute-url-to/thumbnail.jpg',
-        'url' => 'http://absolute-url-to/this-page.html',
+        'url' => 'http://projects.statesman.com/news/perry-people',
         'twitter' => 'statesman'
       );
     ?>
@@ -59,9 +59,9 @@
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right social hidden-xs">
-          <li><a href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a></li>
-          <li><a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&related=<?php print urlencode($meta['twitter']); ?>"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&related=<?php print urlencode($meta['twitter']); ?>"><i class="fa fa-twitter"></i></a></li>
+          <li><a target="_blank" href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
         </ul>
       </div>
     </nav>
@@ -70,10 +70,10 @@
       <div class="row">
         <div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
           <div class="page-header">
-            <h4>Overline goes here</h4>
-            <h1>Interactive title goes here</h1>
+            <h4>Texas politics</h4>
+            <h1>200+ former Perry aides spread through Texas government</h1>
             <p><small>Interactive by Andrew Chavez and Asher Price, Austin American-Statesman</small></p>
-            <p>This is a place where chatter about the interactive can go.</p>
+            <p>At least 200 former aides of Gov. Rick Perry work within Texas’ bureaucracy, ensuring that Perry’s outlook will shape the strategies and programs that make the state tick long after he himself leaves office at the end of this month. Our interactive charts where those former aides now work within the bureaucracy.</p>
             <p><a href="#">Related story ></a></p>
           </div>
 
