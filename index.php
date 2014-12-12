@@ -9,7 +9,7 @@
         'title' => 'Interactive: Where 200+ former Perry aides work in Texas\' bureaucracy',
         'description' => 'At least 200 former aides of Gov. Rick Perry still work in the state\'s government. Our interactive charts where those former aides now work within the bureaucracy.',
         'thumbnail' => 'http://projects.statesman.com/news/perry-people/assets/share.png',
-        'url' => 'http://projects.statesman.com/news/perry-people',
+        'url' => 'http://projects.statesman.com/news/perry-people/',
         'twitter' => 'statesman'
       );
     ?>
