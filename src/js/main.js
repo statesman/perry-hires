@@ -71,6 +71,11 @@
           if(!d.children) {
             return d.salary;
           }
+        })
+        .attr('data-left', function(d) {
+          if(!d.children) {
+            return d.left;
+          }
         });
 
       d3.selectAll("input").on("change", function change() {
@@ -111,7 +116,8 @@
             job: $(this).data('job'),
             agency: $(this).data('agency'),
             salary: numeral($(this).data('salary')).format('$0,0'),
-            hired: moment($(this).data('hired')).format('MMM D, YYYY')
+            hired: moment($(this).data('hired')).format('MMM D, YYYY'),
+            left: moment($(this).data('left')).format('MMM D, YYYY')
           });
         },
         html: true,
