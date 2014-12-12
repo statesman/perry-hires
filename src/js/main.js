@@ -218,7 +218,7 @@
     // Get the JSON and fire the draw process
     $.ajax({
       dataType: 'json',
-      url: 'Perry-hires-updated.json',
+      url: 'perry-hires.json',
       success: function(data) {
         salaryBreakdown(_.pluck(data, 'salary'));
         var grouped = _.chain(data)
