@@ -6,15 +6,15 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <?php
       $meta = array(
-        'title' => 'Interactive: Where 200+ former Perry aides work in Texas\' bureaucracy',
-        'description' => 'At least 200 former aides of Gov. Rick Perry still work in the state\'s government. Our interactive charts where those former aides now work within the bureaucracy.',
+        'title' => 'Where 200+ former Rick Perry aides work in Texas\' bureaucracy',
+        'description' => 'More than 200 former aides of Gov. Rick Perry still work in the state\'s government. Our interactive shows where those former aides now work within the bureaucracy.',
         'thumbnail' => 'http://projects.statesman.com/news/perry-people/assets/share.png',
         'url' => 'http://projects.statesman.com/news/perry-people/',
         'twitter' => 'statesman'
       );
     ?>
 
-    <title><?php print $meta['title']; ?> | Austin American-Statesman</title>
+    <title>Interactive: <?php print $meta['title']; ?> | Austin American-Statesman</title>
     <link rel="icon" type="image/png" href="//projects.statesman.com/common/favicon.ico">
 
     <link rel="canonical" href="<?php print $meta['url']; ?>" />
@@ -60,7 +60,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right social hidden-xs">
           <li><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a></li>
-          <li><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&related=<?php print urlencode($meta['twitter']); ?>"><i class="fa fa-twitter"></i></a></li>
+          <li><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&via=<?php print urlencode($meta['twitter']); ?>&text=<?php print urlencode($meta['title']); ?>"><i class="fa fa-twitter"></i></a></li>
           <li><a target="_blank" href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
         </ul>
       </div>
@@ -70,10 +70,10 @@
       <div class="row">
         <div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
           <div class="page-header">
-            <h4>Texas politics</h4>
+            <h4>Texas Politics</h4>
             <h1>200+ former Perry aides spread throughout Texas government</h1>
             <p><small>Interactive by Andrew Chavez and Asher Price, Austin American-Statesman</small></p>
-            <p>At least 200 former aides of Gov. Rick Perry work within Texas’ bureaucracy, ensuring that Perry’s outlook will shape the strategies and programs that make the state tick long after he himself leaves office at the end of this month. Our interactive charts where those former aides now work within the bureaucracy.</p>
+            <p>More than 200 former aides of Gov. Rick Perry work within Texas’ bureaucracy, which means Perry's outlook will likely shape the strategies and programs that make the state tick long after he himself leaves office at the end of this month. Our interactive charts where those former aides now work within the bureaucracy.</p>
             <?php /**<p><a href="#">Related story ></a></p> **/ ?>
           </div>
 

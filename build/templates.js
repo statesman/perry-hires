@@ -23,9 +23,9 @@ this["JST"]["popover"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + escapeExpression(((helper = (helper = helpers.job || (depth0 != null ? depth0.job : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"job","hash":{},"data":data}) : helper)))
     + ", "
     + escapeExpression(((helper = (helper = helpers.agency || (depth0 != null ? depth0.agency : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"agency","hash":{},"data":data}) : helper)))
-    + "</p>\r\n<p>Salary: "
+    + "</p>\r\n<p><small>Salary: "
     + escapeExpression(((helper = (helper = helpers.salary || (depth0 != null ? depth0.salary : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"salary","hash":{},"data":data}) : helper)))
-    + "</p>\r\n<p>Started in current job: "
+    + "</small></p>\r\n<p>Started in current job: "
     + escapeExpression(((helper = (helper = helpers.hired || (depth0 != null ? depth0.hired : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"hired","hash":{},"data":data}) : helper)))
     + "</p>\r\n<p>Left Perry's office: "
     + escapeExpression(((helper = (helper = helpers.left || (depth0 != null ? depth0.left : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"left","hash":{},"data":data}) : helper)))
